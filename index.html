@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  </head>
+
+
+  <body>
+    <div id="modal">
+      <h1>Enter HTML code here!</h1>
+      <textarea id="inputHTML" rows="10"></textarea>
+
+      <h1>Enter CSS code here!</h1>
+      <textarea id="inputCSS"></textarea>
+
+      <h1>Enter Javascript code here!</h1>
+      <textarea id="inputJS"></textarea>
+    </div>
+
+    <div id="outputHTML">
+    </div>
+
+    <script id="outputJS">
+    </script>
+
+    <style id="outputCSS">
+    </style>
+
+  </body>
+
+
+  <script>
+    $('textarea').keyup(function(){
+
+      $('#outputHTML').html( $('#inputHTML').val() );
+      $('#outputCSS').html( $('#inputCSS').val() );
+      $('#outputJS').html( $('#inputJS').val() );
+
+    });
+
+  </script>
+
+  <style>
+    * {
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      /*position: relative;*/
+    }
+
+    #modal {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 400px;
+      padding: 1em;
+    }
+
+    #modal textarea {
+      width: 100%;
+      font-family: monospace;
+      font-size: 13pt;
+    }
+
+    #output {
+      width: 100%;
+    }
+
+  </style>
+
+</html>
