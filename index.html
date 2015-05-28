@@ -11,20 +11,12 @@
       <textarea id="inputHTML" rows="10"></textarea>
 
       <h1>Enter CSS code here!</h1>
-      <textarea id="inputCSS"></textarea>
+      <textarea id="inputCSS" rows="10"></textarea>
 
-      <h1>Enter Javascript code here!</h1>
-      <textarea id="inputJS"></textarea>
     </div>
 
     <div id="outputHTML">
     </div>
-
-    <script id="outputJS">
-    </script>
-
-    <style id="outputCSS">
-    </style>
 
   </body>
 
@@ -33,28 +25,32 @@
     $('textarea').keyup(function(){
 
       $('#outputHTML').html( $('#inputHTML').val() );
-      $('#outputCSS').html( $('#inputCSS').val() );
-      $('#outputJS').html( $('#inputJS').val() );
 
+      cssArray = $('#inputCSS').val().split("}");
+
+      for (i=0; i<cssArray.length; i++) {
+        cssArray[i] = "#outputHTML " + cssArray[i] + "} ";
+      }
+
+      cssArray = cssArray.join().replace(",","");
+
+      $('#outputCSS').html( cssArray );
     });
 
   </script>
 
+  <style id="outputCSS">
+  </style>
+
   <style>
-    * {
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      /*position: relative;*/
-    }
-
     #modal {
       position: absolute;
       right: 0px;
       top: 0px;
       width: 400px;
       padding: 1em;
+      font-family: Arial, sans-serif;
+      font-weight: 100;
     }
 
     #modal textarea {
@@ -66,7 +62,6 @@
     #output {
       width: 100%;
     }
-
   </style>
 
 </html>
